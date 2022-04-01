@@ -1,5 +1,6 @@
 import { IUser } from '../interfaces';
 import UserModel from '../models/userModel';
+import { createToken } from '../utils/auth';
 
 export default class UserService {
   private userModel: UserModel;
@@ -11,6 +12,8 @@ export default class UserService {
   createNewUser = async (newUserData: IUser) => {
     const userId = await this.userModel.createNewUser(newUserData);
 
-    return { status: 201, data: { userId, ...newUserData } };
+    const token = createToken(newUserData);
+
+    return { statusCode: 201, data: { userId, ...newUserData }, token };
   };
 }

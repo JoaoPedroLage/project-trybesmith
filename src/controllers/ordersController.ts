@@ -9,8 +9,8 @@ export default class OrderController {
   }
 
   async getAllOrders(_req: Request, res: Response) {
-    const { status, data } = await this.orderService.getAllOrders();
+    const { statusCode, data } = await this.orderService.getAllOrders();
 
-    return res.status(status).json(data);
+    return res.status(statusCode).json(data);
   }
 }

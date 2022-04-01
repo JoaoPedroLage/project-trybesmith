@@ -9,15 +9,15 @@ export default class ProductController {
   }
 
   async getAllProducts(_req: Request, res: Response) {
-    const { status, data } = await this.productService.getAllProducts();
+    const { statusCode, data } = await this.productService.getAllProducts();
 
-    return res.status(status).json(data);
+    return res.status(statusCode).json(data);
   }
 
   async createNewProduct(req: Request, res: Response) {
-    const { status, data } = await this.productService.createNewProduct(req.body);
+    const { statusCode, data } = await this.productService.createNewProduct(req.body);
     const item = { item: data };
 
-    return res.status(status).json(item);
+    return res.status(statusCode).json(item);
   }
 }

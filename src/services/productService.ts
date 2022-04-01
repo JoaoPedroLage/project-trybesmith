@@ -11,12 +11,12 @@ export default class ProductService {
   getAllProducts = async () => {
     const products = await this.productModel.getAllProducts();
 
-    return { status: 200, data: products };
+    return { statusCode: 200, data: products };
   };
 
   createNewProduct = async (newProductData: IProduct) => {
     const products = await this.productModel.createNewProduct(newProductData);
 
-    return { status: 201, data: { id: products, ...newProductData } };
+    return { statusCode: 201, data: { id: products, ...newProductData } };
   };
 }

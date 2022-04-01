@@ -21,6 +21,6 @@ export default class OrderService {
       return Order; 
     });
 
-    return { status: 200, data: orders };
+    return { statusCode: 200, data: orders };
   };
 }
