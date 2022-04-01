@@ -7,10 +7,12 @@ dotenv.config();
 
 const SECRET: string | undefined = process.env.JWT_SECRET;
 
+const jwtConfig = { expiresIn: '1d' };
+
 export function createToken(user: IUser) {
   // const { password: passDb, ...userWithouPassword } = user.dataValues;
   if (SECRET !== undefined) {
-    const token = jwt.sign({ user }, SECRET);
+    const token = jwt.sign({ user }, SECRET, jwtConfig);
 
     return token;
   }
