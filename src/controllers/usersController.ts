@@ -11,8 +11,6 @@ export default class UserController {
   async createNewUser(req: Request, res: Response) {
     const { statusCode, token } = await this.userService.createNewUser(req.body);
 
-    req.body.token = token;
-
     return res.status(statusCode).json({ token });
   }
 }

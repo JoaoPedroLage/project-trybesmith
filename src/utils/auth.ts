@@ -5,7 +5,7 @@ import { IUser } from '../interfaces';
 
 dotenv.config();
 
-const SECRET: string | undefined = process.env.JWT_SECRET;
+const SECRET: string | undefined = process.env.JWT_SECRET || 'badSecret';
 
 const jwtConfig = { expiresIn: '1d' };
 
